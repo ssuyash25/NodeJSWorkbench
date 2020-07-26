@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
-const url = 'mongodb://localhost:27017/conFusion1';
+var config = require('./config');
+const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 connect.then((db) => {
     console.log("Connected correctly to server");
